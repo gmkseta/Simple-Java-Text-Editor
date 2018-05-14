@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class SupportedKeywords {
 
-    private String[] supportedLanguages = {".cpp",".java"};
+    private String[] supportedLanguages = {".java",".cpp"};
 
     private String[] java = {"abstract", "assert", "boolean",
             "break", "byte", "case", "catch", "char", "class", "const",

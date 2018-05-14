@@ -87,7 +87,7 @@ public class UI extends JFrame implements ActionListener {
     private final ImageIcon aboutIcon = new ImageIcon("icons/about.png");
 
     private SupportedKeywords kw = new SupportedKeywords();
-    private HighlightText languageHighlighter = new HighlightText(Color.GRAY);
+    private HighlightText languageHighlighter = new HighlightText(Color.BLUE);
     AutoComplete autocomplete;
     private boolean hasListener = false;
     private boolean edit = false;
@@ -107,9 +107,9 @@ public class UI extends JFrame implements ActionListener {
 
         // Set a default font for the TextArea
         textArea = new JTextArea("", 0, 0);
-        textArea.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+        textArea.setFont(new Font("Times", Font.PLAIN, 12));
         textArea.setTabSize(2);
-        textArea.setFont(new Font("Century Gothic", Font.PLAIN, 12));
+        textArea.setFont(new Font("Times", Font.PLAIN, 12));
         textArea.setTabSize(2);
 
         /* SETTING BY DEFAULT WORD WRAP ENABLED OR TRUE */
@@ -119,7 +119,7 @@ public class UI extends JFrame implements ActionListener {
         textArea.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent ke) {
                 edit = true;
-                languageHighlighter.highLight(textArea, kw.getCppKeywords());
+           //     languageHighlighter.highLight(textArea, kw.getCppKeywords());
                 languageHighlighter.highLight(textArea, kw.getJavaKeywords());
             }
         });
@@ -418,7 +418,11 @@ public class UI extends JFrame implements ActionListener {
         String[] list = kw.getSupportedLanguages();
 
         for (int i = 0; i < list.length; i++) {
+        	System.out.println(file.getName());
+        	System.out.println(list[i]);
+        	System.out.println(file.getName().endsWith(list[i]));
             if (file.getName().endsWith(list[i])) {
+            	
                 switch (i) {
                     case 0:
                         String[] jk = kw.getJavaKeywords();

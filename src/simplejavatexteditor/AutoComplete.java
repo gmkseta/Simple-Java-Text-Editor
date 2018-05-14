@@ -188,12 +188,12 @@ public class AutoComplete
         public CompletionTask(String completion, int position) {
             this.completion = completion;
             this.position = position;
+            
         }
 
         @Override
         public void run() {
             textArea.insert(completion, position);
-
             textArea.setCaretPosition(position + completion.length());
             textArea.moveCaretPosition(position);
             mode = Mode.COMPLETION;
@@ -237,6 +237,7 @@ public class AutoComplete
 
         @Override
         public void keyTyped(KeyEvent e) {
+        	
             //Bracket auto complete needs special attention.
             //Multiple possible responses are needed.
             String keyEvent = String.valueOf(e.getKeyChar());
